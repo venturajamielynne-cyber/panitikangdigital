@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Panitikang Digital</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f6f9;
+    overflow-x: hidden;
+    animation: fadePage 1s ease-in-out;
+}
+
+@keyframes fadePage {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* HERO */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+    url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    animation: heroZoom 1.5s ease;
+}
+
+@keyframes heroZoom {
+    from { transform: scale(1.1); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.hero h1 {
+    font-size: 50px;
+}
+
+/* SECTION */
+section {
+    padding: 60px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* CARDS */
+.card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transform: translateY(40px);
+    opacity: 0;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.card.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.03);
+}
+
+/* IMAGE */
+.card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+/* QR */
+.qr img {
+    width: 150px;
+    display: block;
+    margin: 10px auto;
+    transition: transform 0.3s ease;
+}
+
+/* QR HOVER ANIMATION */
+.qr img:hover {
+    transform: scale(1.15) rotate(3deg);
+}
+
+/* BUTTON */
+.btn {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    padding: 8px;
+    background: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.btn:hover {
+    background: #2980b9;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 25px;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 12px;
+}
+
+.close {
+    float: right;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+    <h1>PANITIKANG DIGITAL</h1>
+    <p>Maligayang pagdating sa Panitikang Digital—kung saan ang bawat salita ay may kwento, at ang bawat kwento ay may buhay.</p>
+</div>
+
+<section>
+    <h2>📚 Mga Kaalaman</h2>
+
+    <div class="grid">
+
+        <div class="card" onclick="openModal('Epektibong Pagkatuto','Sa pamamagitan ng paggamit ng digital platforms, mas nagiging kawili-wili ang pagkatuto ng mga mag-aaral. Nagkakaroon sila ng mas malinaw na pag-unawa sa aralin dahil sa mga visual aids, interactive activities, at multimedia resources.')">
+            <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353">
+            <div class="card-content"><h3>📱 Epektibong Pagkatuto</h3></div>
+        </div>
+
+        <div class="card" onclick="openModal('Para sa Guro','Ang mga guro ay nagiging mas organisado at episyente sa kanilang pagtuturo gamit ang teknolohiya. Napapadali ang paggawa ng lesson plans at pagbibigay ng gawain.')">
+            <img src="https://images.unsplash.com/photo-1584697964190-7383c2a8f95b">
+            <div class="card-content"><h3>🎓 Para sa Guro</h3></div>
+        </div>
+
+        <div class="card" onclick="openModal('Partisipasyon','Mas nagiging aktibo ang partisipasyon ng mga mag-aaral dahil sa digital tools. Nahihikayat silang makibahagi at makipagtulungan sa iba.')">
+            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7">
+            <div class="card-content"><h3>🤝 Partisipasyon</h3></div>
+        </div>
+
+        <div class="card" onclick="openModal('Mga Hamon','May mga hamon tulad ng kakulangan sa internet, gadgets, at teknikal na problema na maaaring makaapekto sa pagkatuto.')">
+            <img src="https://images.unsplash.com/photo-1553484771-047a44eee27a">
+            <div class="card-content"><h3>⚠️ Mga Hamon</h3></div>
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <h2>🎥 Mga Bidyo (Scan o Click)</h2>
+
+    <div class="grid qr">
+
+        <div class="card">
+            <div class="card-content">
+                <h3>📹 Bidyo 1</h3>
+                <a href="https://www.facebook.com/watch/?v=318208943520569" target="_blank">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.facebook.com/watch/?v=318208943520569">
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <h3>📹 Bidyo 2</h3>
+                <a href="https://www.facebook.com/watch/?v=234670052056512" target="_blank">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.facebook.com/watch/?v=234670052056512">
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <h3>📹 Bidyo 3</h3>
+                <a href="https://www.facebook.com/watch/?v=206370238094827" target="_blank">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.facebook.com/watch/?v=206370238094827">
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <h3>📹 Bidyo 4</h3>
+                <a href="https://www.facebook.com/reel/311119697207235" target="_blank">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.facebook.com/reel/311119697207235">
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">✖</span>
+        <h2 id="modalTitle"></h2>
+        <p id="modalText"></p>
+    </div>
+</div>
+
+<script>
+const cards = document.querySelectorAll('.card');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        }
+    });
+});
+
+cards.forEach(card => observer.observe(card));
+
+function openModal(title, text) {
+    document.getElementById('modal').style.display = 'flex';
+    document.getElementById('modalTitle').innerText = title;
+    document.getElementById('modalText').innerText = text;
+}
+
+function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+}
+
+window.onclick = function(e) {
+    let modal = document.getElementById('modal');
+    if (e.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>
